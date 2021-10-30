@@ -1,0 +1,29 @@
+
+
+
+<div class="col-md-3">
+  <h1>User info</h1>
+  <%= attachment_image_tag user, :profile_image, fallback: "no_image.jpg", size: "60x60" %>
+  <table class="table">
+    <tr>
+      <th>name</th>
+      <th><%= user.name %></th>
+    </tr>
+    <tr>
+      <th>introduction</th>
+      <th><%= user.introduction %></th>
+    </tr>
+  </table>
+  
+  <p><%= link_to "プロフィール編集", edit_user_path(user), class: "fas fa-user-cog" %></p>
+  
+  <h1>New book</h1>
+  <%= form_with model: new_book, local:true do |f| %>
+    <h4>Title</h4>
+    <%= f.text_field :title, name:"book[title]" %>
+    <h4>Opinion</h4>
+    <%= f.text_area :body, name:"book[body]" %>
+    <%= f.submit 'Create Book', name:"click_button" %>
+  <% end %>
+  
+</div>
